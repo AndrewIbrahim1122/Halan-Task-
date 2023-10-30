@@ -1,0 +1,49 @@
+header{
+
+    h1{
+        text-align: center;
+    }
+}
+
+main{
+    .input-container{
+        display: flex;
+
+        .custom-input{
+            margin: auto;
+            border: 2px solid var(--second-color);
+            background-color: transparent;
+            border-radius: 23px;
+            padding: 10px;
+            color: var(--bag-color);
+        }
+    }
+
+    .parent{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        .user-container{
+            flex: 0 0 30%;
+             margin: 10px auto;
+             padding: 20px;
+             border: 2px solid var(--second-color);
+             border-radius: 23px;
+             
+             .user-profile{
+                 display: flex;
+                 align-items: center;
+                 justify-content: space-between;
+         
+             }
+         }
+     
+     
+         .noDataFound{
+            margin: auto;
+         }
+    }
+
+  
+}

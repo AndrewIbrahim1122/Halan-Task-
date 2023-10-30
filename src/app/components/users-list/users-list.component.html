@@ -1,0 +1,27 @@
+<header>
+  <h1>Get Github Users</h1>
+</header>
+
+<main>
+  <div class="input-container">
+    <input [(ngModel)]="searchText" class="custom-input" (input)="onSearchInput()" placeholder="Search GitHub Users" />
+  </div>
+
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">Error: {{ error }}</div>
+
+  <div *ngIf="!loading && !error" class="parent">
+    <ng-container *ngIf="users?.length > 0">
+      <div *ngFor="let user of users" class="user-container">
+        <div class="user-profile">
+          <img [src]="user.avatar_url" alt="{{ user.login }}" width="50" height="50" />
+          <p>{{ user.login }}</p>
+        </div>
+
+      </div>
+    </ng-container>
+    <div *ngIf="users?.length == 0" class="noDataFound">
+      <h4>There is no data to display</h4>
+    </div>
+  </div>
+</main>
