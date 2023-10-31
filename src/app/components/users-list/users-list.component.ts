@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, Subject, debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
-import { GithubUsersService } from 'src/app/services/github-users.service';
-import { searchUsers } from 'src/app/store/actions/GitHubSearch.actions';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { searchUsers } from 'src/app/store/actions/githubSearch.actions';
 import { GitHubUser, errorSelector, loadingSelector, userSelector } from 'src/app/store/store';
-// import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-users-list',

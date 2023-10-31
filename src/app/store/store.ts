@@ -1,5 +1,5 @@
-import { createAction, createFeatureSelector, createReducer, createSelector, on, props } from "@ngrx/store";
-import * as GitHubSearchActions from "./actions/GitHubSearch.actions"
+import { ActionReducerMap, createFeatureSelector, createSelector } from "@ngrx/store";
+import { gitHubSearchReducer } from "./reducers/githubSearch.reducer";
 
 export interface GitHubUser {
     id: number;
@@ -12,21 +12,8 @@ export interface GitHubSearchState {
     loading: boolean;
     error: any;
   }
-  
-  const initialState: GitHubSearchState = {
-    users: [],
-    loading: false,
-    error: null,
-  };
 
-
-  
-export const gitHubSearchReducer = createReducer(
-    initialState,
-    on(GitHubSearchActions.searchUsers, (state) => ({ ...state, loading: true, error: null })),
-    on(GitHubSearchActions.searchUsersSuccess, (state,users ) => ({ ...state, ...users, loading: false })),
-    on(GitHubSearchActions.searchUsersFailure, (state,error ) => ({ ...state, ...error , loading: false})),
-  );
+  export const reducers : ActionReducerMap<any> = {usersStore : gitHubSearchReducer}
 
   let searchFS = createFeatureSelector<GitHubSearchState>('usersStore')
   export let userSelector = createSelector(searchFS , (state : any) => state.users.items )

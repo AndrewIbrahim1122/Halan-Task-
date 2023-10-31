@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { GithubUsersService } from '../../services/github-users.service';
-import { searchUsers, searchUsersFailure, searchUsersSuccess } from '../actions/GitHubSearch.actions';
+import { searchUsers, searchUsersFailure, searchUsersSuccess } from '../actions/githubSearch.actions';
 import { catchError, debounceTime, distinctUntilChanged, map, of, switchMap } from 'rxjs';
 
 

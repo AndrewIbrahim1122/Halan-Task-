@@ -8,9 +8,9 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { gitHubSearchReducer } from './store/store';
 import {EffectsModule} from '@ngrx/effects'
-import { githubSearchEffect } from './store/effects/GitHubSearch.effect';
+import { githubSearchEffect } from './store/effects/githubSearch.effect';
+import { reducers } from './store/store';
 
 
 
@@ -27,7 +27,7 @@ import { githubSearchEffect } from './store/effects/GitHubSearch.effect';
     HttpClientModule,
     NgSelectModule,
     FormsModule,
-    StoreModule.forRoot({usersStore : gitHubSearchReducer}),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([githubSearchEffect]),
   ],
   providers: [],
